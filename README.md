@@ -1,8 +1,8 @@
 # rhengine Real-time Rendering Engine
 
-rhengine is a RESTful API for creating real-time interactive renderings.
+rhengine is a RESTful API for creating real-time interactive renderings. We support architectural renderings of exteriors, floorplans, and interiors.
 
-**1. getInfo**
+**1. Get Rendering Info**
 ```
 Input: clientName, communityName, planName, elevationName
 Output: JSON object
@@ -32,11 +32,38 @@ The API call is:
 http://rendering.house/api/v1/info/demo/nbr/Hamptons%20at%20Umstead/plan/Oakwood/elev/B
 `
 
-**2. Render with color palettes**
+**2. Exterior Rendering with color palettes**
+```
+Input: clientName, communityName, planName, elevationName, palette IDs, selection IDs
+Output: image daga
+Optional parameters:
+  o - specifies the image output format (jpeg, png, uri)
+  w - specifies the width of the output image, e.g. w=700 for an image is 700px wide. The height of the image will be auto-scaled.
+  s - specifies the scale of output image, e.g. s=0.5 for an image that is 50% of the natural size of the image
+base URL: http://rendering.house/api/v1/ext
+```
+Our rendering engine provide you with the capability of customizing renderable elements with palettes of colors. For textured elements such stones and bricks, you can also add palettes to provide your end users with different selections of stones and bricks. Palettes are pre-configured with our dashboard app.
+
+For example:
+```
+With the following input:
+clientName = demo,
+communityName = Hamptons at Umstead,
+planName = Oakwoood,
+elevationName = B,
+palettes with IDs: 9,18,564,565,566,568,569,570,571,572,
+and their corresponding selections with IDs: 211,254,21151,21265,21308,21332,21334,21343,21358,21365
+```
+The API call to output a PNG image with a width of 700 will be as follows:
+`http://rendering.house/api/v1/ext/demo/nbr/Hamptons%20at%20Umstead/plan/Oakwood/elev/B/palette?pal=9,18,564,565,566,568,569,570,571,572&sel=211,254,21151,21265,21308,21332,21334,21343,21358,21365&o=png&w=762`
 
 
-**3. Render with color schemes**
+**3. Exterior Rendering with color schemes**
 
-**4. Render with hybrid mode**
+**4. Exterior Rendering with hybrid mode**
+
+**5. Floorplan Rendering **
+
+**6. Interior Rendering **
 
 
