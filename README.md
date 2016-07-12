@@ -35,7 +35,7 @@ http://rendering.house/api/v1/info/demo/nbr/Hamptons%20at%20Umstead/plan/Oakwood
 **2. Exterior Rendering with color palettes**
 ```
 Input: clientName, communityName, planName, elevationName, palette IDs, selection IDs
-Output: image daga
+Output: image data
 Optional parameters:
   o - specifies the image output format (jpeg, png, uri)
   w - specifies the width of the output image, e.g. w=700 for an image is 700px wide. The height of the image will be auto-scaled.
@@ -60,10 +60,35 @@ The API call to output a PNG image with a width of 700 will be as follows:
 
 **3. Exterior Rendering with color schemes**
 
+In some applications, color designers can preselect a combination of colors for all the customizable architectural elements and offer the entire set of selection as a color scheme. Our API also supports rendering exteriors with color schemes.
+
+```
+Input: clientName, communityName, planName, elevationName, schemeName
+Output: image data
+Optional parameters:
+  o - specifies the image output format (jpeg, png, uri)
+  w - specifies the width of the output image, e.g. w=700 for an image is 700px wide. The height of the image will be auto-scaled.
+  s - specifies the scale of output image, e.g. s=0.5 for an image that is 50% of the natural size of the image
+base URL: http://rendering.house/api/v1/ext
+```
+
+For example:
+```
+With the following input:
+clientName = demo,
+communityName = Hamptons at Umstead,
+planName = Oakwoood,
+elevationName = B,
+schemeName= Crossroads
+```
+The API call is as follows:
+
+`http://rendering.house/api/v1/ext/demo/nbr/Briar Chapel/plan/Oakwood/elev/B/scheme/Crossroads`
+
 **4. Exterior Rendering with hybrid mode**
 
-**5. Floorplan Rendering **
+**5. Floorplan Rendering**
 
-**6. Interior Rendering **
+**6. Interior Rendering**
 
 
