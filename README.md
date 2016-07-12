@@ -76,7 +76,7 @@ For example:
 ```
 With the following input:
 clientName = demo,
-communityName = Hamptons at Umstead,
+communityName = Briar Chapel,
 planName = Oakwoood,
 elevationName = B,
 schemeName= Crossroads
@@ -87,8 +87,40 @@ The API call is as follows:
 
 **4. Exterior Rendering with hybrid mode**
 
+Color schemes gives potential home buyers a set of color schemes that are preselected by professional designers. Hybrid mode is a rendering mode which offers the best of what color schemes have to offer enhanced with the flexibility of customizing indvidual architectural color elements.
+
+```
+Input: clientName, communityName, planName, elevationName, schemeName, paletteIDs, selectionIDs
+Output: image data
+Optional parameters:
+  o - specifies the image output format (jpeg, png, uri)
+  w - specifies the width of the output image, e.g. w=700 for an image is 700px wide. The height of the image will be auto-scaled.
+  s - specifies the scale of output image, e.g. s=0.5 for an image that is 50% of the natural size of the image
+base URL: http://rendering.house/api/v1/ext
+```
+
+For example:
+```
+With the following input:
+clientName = demo,
+communityName = Carries Reach,
+planName = Oakwoood,
+elevationName = B,
+schemeName= Crossroads,
+and a request to customize the siding element (paletteID=564) with the color Clary Sage (ID=21200)
+```
+The API call is as follows:
+
+`http://rendering.house/api/v1/ext/demo/nbr/Carries Reach/plan/Oakwood/elev/B/hybrid/scheme/Crossroads/?pal=564&sel=21200`
+
 **5. Floorplan Rendering**
+
+Our rendering engine also supports rendering floorplans with customizable options.
+`More documentation on this coming soon.`
+
 
 **6. Interior Rendering**
 
+In addition, our rendering engine also supports rendering interiors with customizable options.
+`More documentation to follow soon.`
 
