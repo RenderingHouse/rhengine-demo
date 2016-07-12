@@ -116,11 +116,13 @@ The API call is as follows:
 **5. Floorplan Rendering**
 
 Our rendering engine also supports rendering floorplans with customizable options.
+
 `More documentation on this coming soon.`
 
 
 **6. Interior Rendering**
 
 In addition, our rendering engine also supports rendering interiors with customizable options.
+
 `More documentation to follow soon.`
 
