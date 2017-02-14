@@ -122,7 +122,31 @@ Our rendering engine also supports rendering floorplans with customizable option
 
 **6. Interior Rendering**
 
-In addition, our rendering engine also supports rendering interiors with customizable options.
+With interiors, the API will require you to specify all selections for all customizable elements in the rendered image.
 
-`More documentation to follow soon.`
+```
+Optional parameters:
+  o - specifies the image output format (jpeg, png, uri)
+  w - specifies the width of the output image, e.g. w=700 for an image is 700px wide. The height of the image will be auto-scaled.
+  s - specifies the scale of output image, e.g. s=0.5 for an image that is 50% of the natural size of the image
+```
+
+For example:
+
+Lets says we want an image of a kitchen interior as a data URI with a width of 940px. Suppose the kitchen has the following customizable elements; Appliances, Cabinets, Counters, Floors, Furniture, Lighting, and Wall Color.
+
+```
+Given the following selection for each of the customizable element,
+Appliances (ID:7), Selected option: White (ID:36)
+Cabinets (ID:1), Selected option: Mahogany (ID:1)
+Counters (ID:2), Selected option: Granite (ID:4)
+Floors (ID:3), Selected option: Tile (ID:9)
+Furniture (ID:4), Selected option: Ash (ID:13)
+Lighting (ID:5), Selected option: Standard (ID:18)
+Wall Color (ID: 6), Selected option: Beige (ID:23)
+```
+
+The API call to render the kitchen is:
+
+`//rendering.house/api/v1/itr/demo/room/Kitchen?id=1&o=uri&w=940&opts=7,1,2,3,4,5,6&sel=36,1,4,9,13,18,23`
 
